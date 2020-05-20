@@ -13199,6 +13199,44 @@
 
   Component.registerComponent('LoadingSpinner', LoadingSpinner);
 
+  // 新增loading
+  var MyLoading = /*#__PURE__*/function (_Component) {
+    inheritsLoose(MyLoading, _Component);
+
+    function MyLoading() {
+      return _Component.apply(this, arguments) || this;
+    }
+
+    var _proto = MyLoading.prototype;
+
+    /**
+     * Create the `MyLoading`s DOM element.
+     *
+     * @return {Element}
+     *         The dom element that gets created.
+     */
+    _proto.createEl = function createEl$1() {
+      var isAudio = this.player_.isAudio();
+      var playerType = this.localize(isAudio ? 'Audio Player' : 'Video Player');
+      var controlText = createEl('span', {
+        className: 'vjs-control-text',
+        innerHTML: this.localize('{1} is loading.', [playerType])
+      });
+
+      var el = _Component.prototype.createEl.call(this, 'div', {
+        className: 'vjs-my-loading',
+        dir: 'ltr'
+      });
+
+      el.appendChild(controlText);
+      return el;
+    };
+
+    return MyLoading;
+  }(Component);
+
+  Component.registerComponent('MyLoading', MyLoading);
+
   /**
    * Base class for all buttons.
    *
@@ -27699,7 +27737,7 @@
     // 'playbackRates': [0.5, 1, 1.5, 2],
     liveui: false,
     // Included control sets
-    children: ['mediaLoader', 'posterImage', 'textTrackDisplay', 'loadingSpinner', 'bigPlayButton', 'liveTracker', 'controlBar', 'errorDisplay', 'textTrackSettings', 'resizeManager'],
+    children: ['mediaLoader', 'posterImage', 'textTrackDisplay', 'myLoading', /*'loadingSpinner','bigPlayButton',*/ 'liveTracker', 'controlBar', 'errorDisplay', 'textTrackSettings', 'resizeManager'],
     language: navigator && (navigator.languages && navigator.languages[0] || navigator.userLanguage || navigator.language) || 'en',
     // locales and their language translations
     languages: {},

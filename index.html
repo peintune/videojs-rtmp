@@ -4,8 +4,8 @@
     <title>Video.js | HTML5 Video Player</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-    <link href="./latest/video-js.css" rel="stylesheet">
-    <script src="./latest/video.js"></script>
+    <link href="./latest/video-js-1.css" rel="stylesheet">
+    <script src="./latest/video-1.js"></script>
     <script src="./latest/videojs-flash.js"></script>
 
 </head>
@@ -25,8 +25,10 @@
     let playingCount = 0;
     let isConnect = false;
     let duration = 0;
+    let playing = false;
+    // const rtmp = "rtmp://192.168.39.25/live/livestream/MTY2004-A1013";
     //const rtmp = "rtmp://192.168.24.177:1935/live/12";
-    //const rtmp = "rtmp://127.0.0.1:1935/live/12";
+    //const rtmp = "rtmp://192.168.24.58:1935/live/12";
     const rtmp = "rtmp://192.168.39.25/live/livestream/MTY2003-A1202";
 
     let videoId = 'video_box';
@@ -35,15 +37,15 @@
         {
             height: 400,
             width: 600,
-            controls: true,
+            controls: false,
             preload: "none",
             muted: true,
-            //live: true,
+            live: true,
             autoplay: true,   // 自动播放
-           // poster: './poster.png',
             flash: {
                 swf: "./latest/video-js-0.2-0.1.swf",
-              //  swf: "./latest/video-js-2-6.swf"
+                //build
+               // swf: "./latest/video-js-2-6.swf"
             },
             techOrder: ["flash"],
             sources: [
@@ -72,20 +74,28 @@
 
             this.on('waiting', function() {//等待数据，并非错误
                 console.log("等待数据")
+                playing = false;
+                var timer =   setInterval(function(){
+                        if(!playing){
+                            document.getElementsByClassName('vjs-my-loading')[0].style.visibility='visible';
+                        }else{
+                            clearInterval(timer);
+                        }
+                    }, 500);
             });
 
             this.on('play', function() {//开始播放
                 updateTimeCount = 0;
                 isConnect = true;
-                console.log("开始播放")
+              //  console.log("开始播放")
             });
 
             this.on('loadedmetadata', function() {//成功获取资源长度
-                console.log("成功获取资源长度")
+               // console.log("成功获取资源长度")
             });
 
             this.on('canplaythrough', function() { //可以播放，歌曲全部加载完毕
-                console.log("可以播放，歌曲全部加载完毕")
+               //s console.log("可以播放，歌曲全部加载完毕")
             });
 
             this.on('timeupdate', function() {//播放时间改变
@@ -104,15 +114,18 @@
             this.on('playing', function() {//开始回放
                 updateTimeCount = 0;
                 isConnect = true;
+                playing = true;
+                document.getElementsByClassName('vjs-my-loading')[0].style.visibility='hidden';
+
                 console.log("开始回放")
             });
 
             this.on('suspend', function() {//延迟下载
-                console.log("延迟下载")
+              //  console.log("延迟下载")
             });
 
             this.on('abort', function() {//客户端主动终止下载（不是因为错误引起）
-                console.log("客户端主动终止下载")
+               // console.log("客户端主动终止下载")
             });
 
             this.on('error', function() {//请求数据时遇到错误
@@ -132,28 +145,28 @@
                 console.log("寻找中")
             });
             this.on('seeked', function() {//寻找完毕
-                console.log("寻找完毕")
+               // console.log("寻找完毕")
             });
 
             this.on('ended', function() {//播放结束
                 console.log("播放结束")
             });
             this.on('ratechange', function() {//播放速率改变
-                console.log("播放速率改变")
+               // console.log("播放速率改变")
             });
             this.on('durationchange', function() {//资源长度改变
-                console.log("资源长度改变")
+               // console.log("资源长度改变")
             });
             this.on('volumechange', function() {//音量改变
-                console.log("音量改变")
+               // console.log("音量改变")
             });
         }
     );
 
     this.player.play();
 
-    //重连rtmp流， 以获取最新最实时的画面
     function restartRTMP() {
+   // document.getElementsByClassName('vjs-my-loading')[0].style.visibility='visible';
         this.player.stop();
         this.player.src([
           {
@@ -169,11 +182,11 @@
     // 监听页面是否为可见状态，可见开始播放，不可见暂停播放
     document.addEventListener("visibilitychange", function() {
         if(document.visibilityState == "hidden") {
+          //  player.pause();
             isConnect = false;
             console.log('隐藏');
         } else if (document.visibilityState == "visible") {
             updateTimeCount = 10000;
-            //重新回到当前tab页面，则获取最新的rtmp流
             restartRTMP()
             console.log('显示')
         }
@@ -181,10 +194,10 @@
 
 
     //判断断网重连，定时器时间不能太短，太频繁会报load is not function
-    this.setInterval("timer()",2500);
+    this.setInterval("timer()",1500);
     function timer(){
-        //画面延迟过大后，拉取最新的rtmp流播放
-        if (updateTimeCount - playingCount > 120) {
+        if (updateTimeCount - playingCount > 45) {
+            updateTimeCount -= 10;
             console.log("已经延迟或没有画面，每隔500ms重置一次，直到不出现黑屏", updateTimeCount)
             restartRTMP();
         } else {
@@ -197,6 +210,7 @@
                restartRTMP();
             }
         }
+
     }
 
 </script>

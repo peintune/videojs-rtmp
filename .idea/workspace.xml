@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1d9efac-6b8f-4624-b01b-aeec36308049" name="Default Changelist" comment="" />
+    <list default="true" id="e1d9efac-6b8f-4624-b01b-aeec36308049" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest/videojs-flash.js" beforeDir="false" afterPath="$PROJECT_DIR$/latest/videojs-flash.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1c9VNBKOhfv8ZBl3vBrooYrkisM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,9 +24,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../video-js-swf2" />
+    <property name="last_opened_file_path" value="F:/work/projects/ideaworkspace/BKD_All_core_microservice" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -29,7 +39,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589940753183</updated>
-      <workItem from="1589940754673" duration="2370000" />
+      <workItem from="1589940754673" duration="13930000" />
     </task>
     <servers />
   </component>
@@ -37,10 +47,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="893" y="-722" key="FileChooserDialogImpl" timestamp="1589940961711">
+    <state x="893" y="-722" key="FileChooserDialogImpl" timestamp="1589946087553">
       <screen x="0" y="-1080" width="1920" height="958" />
     </state>
-    <state x="893" y="-722" key="FileChooserDialogImpl/0.0.1536.824/0.-1080.1920.958@0.-1080.1920.958" timestamp="1589940961711" />
+    <state x="893" y="-722" key="FileChooserDialogImpl/0.0.1536.824/0.-1080.1920.958@0.-1080.1920.958" timestamp="1589946087553" />
+    <state x="703" y="-784" width="626" height="490" key="find.popup" timestamp="1589953296210">
+      <screen x="0" y="-1080" width="1920" height="958" />
+    </state>
+    <state x="703" y="-784" width="626" height="490" key="find.popup/0.0.1536.824/0.-1080.1920.958@0.-1080.1920.958" timestamp="1589953296210" />
+    <state x="672" y="-286" key="run.anything.popup" timestamp="1589959692882">
+      <screen x="0" y="-1080" width="1920" height="958" />
+    </state>
+    <state x="672" y="-286" key="run.anything.popup/0.0.1536.824/0.-1080.1920.958@0.-1080.1920.958" timestamp="1589959692882" />
     <state x="428" y="-801" width="672" height="678" key="search.everywhere.popup" timestamp="1589942219726">
       <screen x="0" y="-1080" width="1920" height="958" />
     </state>
